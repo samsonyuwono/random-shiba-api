@@ -5,39 +5,39 @@ import "./App.css";
 const API_URL = "http://shibe.online/api/shibes?count=1";
 const CORS_ANYWHERE = "https://cors-anywhere.herokuapp.com/";
 
-const useFetch = (url) => {
-  const [data, setData] = useState([]);
+const useFetch = () => {
+  const [shiba, setShiba] = useState([]);
   const [loading, setLoading] = useState(true);
   useEffect(() => {
     axios
       .get(CORS_ANYWHERE + API_URL)
       .then((response) => {
+        for (let i = 0; i < response.shiba.length; i++) {
+          setShiba((shiba) => [...shiba, response.shiba]);
+        }
         console.log(response);
-
-        setData(response.data);
+        setShiba(response.shiba);
         setLoading(false);
       })
       .catch((error) => {
         console.log(error);
       });
   }, []);
-
-  return { data, loading };
+  console.log(shiba);
+  return { shiba, loading };
 };
 
 function App() {
-  const [count, setCount] = useState(0);
-
-  const { data, loading } = useFetch("http://shibe.online/api/shibes?count=1");
+  const { shiba, loading } = useFetch();
   return (
     <div className="App">
-      <p>You click {count} times</p>
-      <button onClick={() => setCount(count + 1)}>Click Me!</button>
       {loading ? (
         <div>loading...</div>
       ) : (
         <div>
-          <img src={data} alt="shibe" />
+          {shiba.map((char) => (
+            <img src={char} alt="shibe" />
+          ))}
         </div>
       )}
     </div>
