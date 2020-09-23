@@ -4,7 +4,7 @@ import Container from "@material-ui/core/Container";
 import axios from "axios";
 import "./App.css";
 
-const API_URL = "http://shibe.online/api/shibes?count=16";
+const API_URL = "http://shibe.online/api/shibes?count=20";
 const CORS_ANYWHERE = "https://cors-anywhere.herokuapp.com/";
 
 const useFetch = () => {
