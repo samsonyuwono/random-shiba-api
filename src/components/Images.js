@@ -31,7 +31,7 @@ const Images = (props) => {
         <Grid container justify="center" spacing={8}>
           {props.shiba.map((char, i) => (
             <Grid key={i} item>
-              <Paper className={classes.paper}>
+              <Paper>
                 <img className={classes.paper} key={i} src={char} alt="shibe" />
               </Paper>
             </Grid>
