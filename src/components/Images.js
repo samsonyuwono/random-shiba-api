@@ -19,6 +19,7 @@ const useStyles = makeStyles((theme) => ({
 const Images = (props) => {
   const classes = useStyles();
   console.log(props);
+  const shibas = props.shiba;
   return (
     <Grid
       container
@@ -29,7 +30,7 @@ const Images = (props) => {
     >
       <Grid item xs={12}>
         <Grid container justify="center" spacing={8}>
-          {props.shiba.map((char, i) => (
+          {shibas.map((char, i) => (
             <Grid key={i} item>
               <Paper>
                 <img className={classes.paper} key={i} src={char} alt="shibe" />
