@@ -10,22 +10,16 @@ const API_URL = "http://shibe.online/api/shibes?count=12";
 const CORS_ANYWHERE = "https://cors-anywhere.herokuapp.com/";
 
 function App() {
-  // const classes = useStyles();
-
   const [shibas, setShibas] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [text, setText] = useState("");
   const [wayPointActivated, setWaypoint] = useState(false);
 
   const fetchShibas = () => {
-    console.log("hit");
-    setLoading(true);
     axios
       .get(CORS_ANYWHERE + API_URL)
       .then((response) => {
-        setShibas(response.data);
+        setShibas([...shibas, ...response.data]);
         setLoading(false);
-        setText("more");
         setWaypoint(true);
       })
       .catch((error) => {
@@ -36,7 +30,7 @@ function App() {
   return (
     <div className="App">
       <Container fixed>
-        <FetchButton onClick={fetchShibas} text={text} />
+        <FetchButton fetchShibas={fetchShibas} />
 
         {loading ? <div>loading...</div> : <Images shiba={shibas} />}
         <Waypoint
@@ -46,7 +40,7 @@ function App() {
             }
           }}
         >
-          <div style={{ display: "block", height: "200px" }} />
+          <div style={{ display: "block", height: "100px" }} />
         </Waypoint>
       </Container>
     </div>
