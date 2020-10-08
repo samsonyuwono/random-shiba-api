@@ -18,7 +18,7 @@ const FetchButton = (props) => {
       onClick={props.fetchShibas}
       className={classes.margin}
     >
-      Press Button for {props.text} Doge
+      Press Button for Doge
     </Button>
   );
 };
