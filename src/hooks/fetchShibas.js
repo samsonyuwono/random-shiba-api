@@ -5,7 +5,7 @@ const [shibas, setShibas] = useState([]);
 const [loading, setLoading] = useState(false);
 const [wayPointActivated, setWaypoint] = useState(false);
 
-export const fetchShibas = (url) => {
+export const useFetch = (url) => {
   axios
     .get(url)
     .then((response) => {

@@ -4,6 +4,7 @@ import FetchButton from "./Button.js";
 import Container from "@material-ui/core/Container";
 import axios from "axios";
 import { Waypoint } from "react-waypoint";
+// import { fetchShibas } from "../hooks/fetchShibas";
 
 function ImageContainer() {
   const [shibas, setShibas] = useState([]);
@@ -29,6 +30,7 @@ function ImageContainer() {
   //   const { shibas, loading, wayPointActivated } = fetchShibas(
   //     API_URL + CORS_ANYWHERE
   //   );
+
   return (
     <Container fixed>
       <FetchButton fetchShibas={fetchShibas} />
