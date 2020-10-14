@@ -20,8 +20,8 @@ const useStyles = makeStyles((theme) => ({
 const Images = (props) => {
   console.log(props);
   const classes = useStyles();
-  console.log(props);
   const shibas = props.shiba;
+
   return (
     <Grid
       container
