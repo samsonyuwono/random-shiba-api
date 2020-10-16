@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 
 export const useFetch = () => {
@@ -8,17 +8,19 @@ export const useFetch = () => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
   const [waypointActivated, setWaypoint] = useState(false);
+  useEffect(() => {
+    axios
+      .get(CORS_ANYWHERE + API_URL)
+      .then((response) => {
+        setData([...data, ...response.data]);
+        setLoading(false);
+        setWaypoint(true);
+      })
+      .catch((error) => {
+        console.log(error);
+        setLoading(false);
+      });
+  }, [data]);
 
-  axios
-    .get(CORS_ANYWHERE + API_URL)
-    .then((response) => {
-      setData([...data, ...response.data]);
-      setLoading(false);
-      setWaypoint(true);
-    })
-    .catch((error) => {
-      console.log(error);
-      setLoading(false);
-    });
   return [data, loading, waypointActivated];
 };

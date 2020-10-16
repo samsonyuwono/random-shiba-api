@@ -15,7 +15,7 @@ const FetchButton = (props) => {
       variant="contained"
       size="large"
       color="primary"
-      onClick={() => props.fetchShibas}
+      onClick={props.fetchShibas}
       className={classes.margin}
     >
       Press Button for Doge

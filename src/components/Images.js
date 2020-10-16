@@ -9,6 +9,12 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 2,
   },
   paper: {
+    opacity: 1,
+    height: 200,
+    width: 200,
+  },
+  loading: {
+    opacity: 0.2,
     height: 200,
     width: 200,
   },
@@ -18,9 +24,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Images = (props) => {
-  console.log(props);
   const classes = useStyles();
-  const shibas = props.shiba;
 
   return (
     <Grid
@@ -32,11 +36,11 @@ const Images = (props) => {
     >
       <Grid item xs={12}>
         <Grid container justify="center" spacing={8}>
-          {shibas.map((image, i) => (
+          {props.shiba.map((image, i) => (
             <Grid key={i} item>
               <Paper>
                 <SingleImage
-                  className={classes.paper}
+                  className={props.loading ? classes.loading : classes.paper}
                   src={image}
                   key={i}
                   alt="shibe"

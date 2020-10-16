@@ -1,10 +1,14 @@
-import React, { useEffect } from "react";
+import React from "react";
 
 const SingleImage = (props) => {
-  const loaded = props.loaded;
-  console.log(loaded);
-
-  return <img className={props.className} src={props.src} alt="shibe" />;
+  return (
+    <img
+      className={props.className}
+      src={props.src}
+      alt="shibe"
+      style={props.style}
+    />
+  );
 };
 
 export default SingleImage;
