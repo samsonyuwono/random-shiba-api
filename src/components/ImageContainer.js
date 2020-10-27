@@ -10,7 +10,7 @@ function ImageContainer() {
   const [shibas, setShibas] = useState([]);
   const [loading, setLoading] = useState(false);
   const [wayPointActivated, setWaypoint] = useState(false);
-  const API_URL = "http://shibe.online/api/shibes?count=12";
+  const API_URL = "http://shibe.online/api/shibes?count=20";
   const CORS_ANYWHERE = "https://cors-anywhere.herokuapp.com/";
 
   const fetchShibas = () => {

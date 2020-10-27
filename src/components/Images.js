@@ -35,7 +35,7 @@ const Images = (props) => {
       alignItems="center"
     >
       <Grid item xs={12}>
-        <Grid container justify="center" spacing={8}>
+        <Grid container justify="center" spacing={2}>
           {props.shiba.map((image, i) => (
             <Grid key={i} item>
               <Paper>
