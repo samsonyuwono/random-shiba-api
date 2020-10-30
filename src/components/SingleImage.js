@@ -1,19 +1,16 @@
 import React from "react";
 
-function handleClick() {
-  console.log("The link was clicked.");
-}
-
 //pass on src to child component
 
-const SingleImage = (props) => {
+const SingleImage = ({ className, src, style, handleClick, open }) => {
   return (
     <img
-      className={props.className}
-      src={props.src}
+      className={className}
+      src={src}
       alt="shibe"
-      style={props.style}
-      onClick={() => handleClick()}
+      style={style}
+      onClick={handleClick}
+      open={open}
     />
   );
 };

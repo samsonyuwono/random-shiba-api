@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Images from "./Images.js";
 import FetchButton from "./Button.js";
 import Container from "@material-ui/core/Container";
@@ -10,6 +10,7 @@ function ImageContainer() {
   const [shibas, setShibas] = useState([]);
   const [loading, setLoading] = useState(false);
   const [wayPointActivated, setWaypoint] = useState(false);
+  const [open, setOpen] = useState(false);
   const API_URL = "http://shibe.online/api/shibes?count=20";
   const CORS_ANYWHERE = "https://cors-anywhere.herokuapp.com/";
 
@@ -32,10 +33,27 @@ function ImageContainer() {
   //     API_URL + CORS_ANYWHERE
   //   );
 
+  const handleClick = () => {
+    setOpen(!open);
+  };
+
+  // useEffect(() => {
+  //   if (open) {
+  //     document.body.style.overflow = "hidden";
+  //   } else {
+  //     document.body.style.overflow = "scroll";
+  //   }
+  // });
+
   return (
     <Container fixed>
       <FetchButton fetchShibas={fetchShibas} />
-      <Images shiba={shibas} loading={loading} />
+      <Images
+        shiba={shibas}
+        loading={loading}
+        handleClick={handleClick}
+        open={open}
+      />
       {loading ? (
         <Spinner />
       ) : (

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
@@ -21,11 +21,20 @@ const useStyles = makeStyles((theme) => ({
   control: {
     padding: theme.spacing(2),
   },
+  dialog: {
+    position: "relative",
+    left: "0%",
+    top: "15%",
+  },
+  modal: {
+    height: 500,
+    width: 500,
+  },
 }));
 
-const Images = (props) => {
+const Images = ({ shiba, loading, handleClick, open }) => {
   const classes = useStyles();
-
+  console.log(open);
   return (
     <Grid
       container
@@ -36,15 +45,32 @@ const Images = (props) => {
     >
       <Grid item xs={12}>
         <Grid container justify="center" spacing={2}>
-          {props.shiba.map((image, i) => (
+          {shiba.map((image, i) => (
             <Grid key={i} item>
               <Paper>
                 <SingleImage
-                  className={props.loading ? classes.loading : classes.paper}
+                  className={loading ? classes.loading : classes.paper}
                   src={image}
                   key={i}
                   alt="shibe"
+                  handleClick={handleClick}
+                  open={open}
                 />
+                {open && (
+                  <dialog
+                    className={classes.dialog}
+                    style={{ position: "absolute" }}
+                    open
+                    onClick={handleClick}
+                  >
+                    <img
+                      className={classes.modal}
+                      src={image}
+                      onClick={handleClick}
+                      alt="modal"
+                    />
+                  </dialog>
+                )}
               </Paper>
             </Grid>
           ))}
