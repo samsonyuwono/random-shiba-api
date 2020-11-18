@@ -22,13 +22,26 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(2),
   },
   dialog: {
-    position: "relative",
+    position: "fixed",
     left: "0%",
     top: "15%",
   },
   modal: {
     height: 500,
     width: 500,
+  },
+
+  overlay: {
+    position: "fixed",
+    width: "100%",
+    height: "100%",
+    top: "0",
+    left: "0",
+    right: "0",
+    bottom: "0",
+    "background-color": "rgba(0,0,0,0.1)",
+    opacity: "0.2",
+    cursor: "pointer",
   },
 }));
 
@@ -57,6 +70,7 @@ const Images = ({ shiba, loading, clickModal, open, currentModal }) => {
                   currentModal={currentModal}
                   dialog={classes.dialog}
                   modal={classes.modal}
+                  overlay={classes.overlay}
                 />
               </Paper>
             </Grid>

@@ -9,6 +9,7 @@ const SingleImage = ({
   open,
   dialog,
   modal,
+  overlay,
   currentModal,
 }) => {
   return (
@@ -26,6 +27,7 @@ const SingleImage = ({
           dialog={dialog}
           clickModal={clickModal}
           modal={modal}
+          overlay={overlay}
           currentModal={currentModal}
         />
       )}

@@ -1,21 +1,23 @@
 import React from "react";
 
-const Modal = ({ clickModal, dialog, modal, currentModal }) => {
+const Modal = ({ clickModal, dialog, modal, overlay, currentModal }) => {
   return (
     <div>
-      <dialog
-        className={dialog}
-        style={{ position: "fixed" }}
-        open
-        onClick={clickModal}
-      >
-        <img
-          className={modal}
-          src={currentModal}
+      <div className={overlay}>
+        <dialog
+          className={dialog}
+          style={{ position: "fixed" }}
+          open
           onClick={clickModal}
-          alt="modal"
-        />
-      </dialog>
+        >
+          <img
+            className={modal}
+            src={currentModal}
+            onClick={clickModal}
+            alt="modal"
+          />
+        </dialog>
+      </div>
     </div>
   );
 };
