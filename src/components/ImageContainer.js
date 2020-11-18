@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Images from "./Images.js";
 import FetchButton from "./Button.js";
 import Container from "@material-ui/core/Container";
@@ -11,6 +11,7 @@ function ImageContainer() {
   const [loading, setLoading] = useState(false);
   const [wayPointActivated, setWaypoint] = useState(false);
   const [open, setOpen] = useState(false);
+  const [currentModal, setModal] = useState("");
   const API_URL = "http://shibe.online/api/shibes?count=20";
   const CORS_ANYWHERE = "https://cors-anywhere.herokuapp.com/";
 
@@ -32,8 +33,12 @@ function ImageContainer() {
   //   const [shibas, loading, waypointActivated] = useFetch(
   //     API_URL + CORS_ANYWHERE
   //   );
-
-  const handleClick = () => {
+  //set only 1 src
+  const handleClick = (e) => {
+    // set src for modal
+    console.log("e", e);
+    setModal(e);
+    console.log("currentModal>>>", currentModal);
     setOpen(!open);
   };
 
@@ -53,6 +58,7 @@ function ImageContainer() {
         loading={loading}
         handleClick={handleClick}
         open={open}
+        currentModal={currentModal}
       />
       {loading ? (
         <Spinner />
