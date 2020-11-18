@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import Images from "./Images.js";
 import FetchButton from "./Button.js";
 import Container from "@material-ui/core/Container";
@@ -33,22 +33,19 @@ function ImageContainer() {
   //   const [shibas, loading, waypointActivated] = useFetch(
   //     API_URL + CORS_ANYWHERE
   //   );
-  //set only 1 src
-  const handleClick = (e) => {
-    // set src for modal
-    console.log("e", e);
+
+  const clickModal = (e) => {
     setModal(e);
-    console.log("currentModal>>>", currentModal);
     setOpen(!open);
   };
 
-  // useEffect(() => {
-  //   if (open) {
-  //     document.body.style.overflow = "hidden";
-  //   } else {
-  //     document.body.style.overflow = "scroll";
-  //   }
-  // });
+  useEffect(() => {
+    if (open) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "scroll";
+    }
+  });
 
   return (
     <Container fixed>
@@ -56,7 +53,7 @@ function ImageContainer() {
       <Images
         shiba={shibas}
         loading={loading}
-        handleClick={handleClick}
+        clickModal={clickModal}
         open={open}
         currentModal={currentModal}
       />

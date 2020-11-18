@@ -1,12 +1,11 @@
 import React from "react";
-
-//pass on src to child component
+import Modal from "./Modal";
 
 const SingleImage = ({
   className,
   src,
   style,
-  handleClick,
+  clickModal,
   open,
   dialog,
   modal,
@@ -19,23 +18,16 @@ const SingleImage = ({
         src={src}
         alt="shibe"
         style={style}
-        onClick={handleClick}
+        onClick={clickModal}
         open={false}
       />
       {open && (
-        <dialog
-          className={dialog}
-          style={{ position: "absolute" }}
-          open
-          onClick={handleClick}
-        >
-          <img
-            className={modal}
-            src={currentModal}
-            onClick={handleClick}
-            alt="modal"
-          />
-        </dialog>
+        <Modal
+          dialog={dialog}
+          clickModal={clickModal}
+          modal={modal}
+          currentModal={currentModal}
+        />
       )}
     </div>
   );

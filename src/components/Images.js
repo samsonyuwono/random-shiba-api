@@ -32,7 +32,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Images = ({ shiba, loading, handleClick, open, currentModal }) => {
+const Images = ({ shiba, loading, clickModal, open, currentModal }) => {
   const classes = useStyles();
   return (
     <Grid
@@ -52,7 +52,7 @@ const Images = ({ shiba, loading, handleClick, open, currentModal }) => {
                   src={image}
                   key={i}
                   alt="shibe"
-                  handleClick={() => handleClick(image)}
+                  clickModal={() => clickModal(image)}
                   open={open}
                   currentModal={currentModal}
                   dialog={classes.dialog}
