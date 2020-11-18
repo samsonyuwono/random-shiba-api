@@ -4,12 +4,7 @@ const Modal = ({ clickModal, dialog, modal, overlay, currentModal }) => {
   return (
     <div>
       <div className={overlay}>
-        <dialog
-          className={dialog}
-          style={{ position: "fixed" }}
-          open
-          onClick={clickModal}
-        >
+        <dialog className={dialog} open onClick={clickModal}>
           <img
             className={modal}
             src={currentModal}
