@@ -23,7 +23,6 @@ const useStyles = makeStyles((theme) => ({
   },
   dialog: {
     position: "fixed",
-    margin: "50px auto",
     top: "0",
     left: "0",
     bottom: "0",
@@ -32,6 +31,8 @@ const useStyles = makeStyles((theme) => ({
   modal: {
     width: "50vw",
     height: "50vh",
+    "max-width": "100%",
+    "min-width": "50%",
   },
 
   overlay: {
