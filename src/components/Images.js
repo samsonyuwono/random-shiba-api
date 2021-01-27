@@ -23,16 +23,30 @@ const useStyles = makeStyles((theme) => ({
   },
   dialog: {
     position: "fixed",
+    margin: "50px auto",
     top: "0",
     left: "0",
     bottom: "0",
     right: "0",
+    [theme.breakpoints.down("xs")]: {
+      margin: "200px auto",
+    },
   },
   modal: {
-    width: "50vw",
-    height: "50vh",
-    "max-width": "100%",
-    "min-width": "50%",
+    width: 500,
+    height: 500,
+    [theme.breakpoints.down("md")]: {
+      width: 450,
+      height: 450,
+    },
+    [theme.breakpoints.down("sm")]: {
+      width: 300,
+      height: 300,
+    },
+    [theme.breakpoints.down("xs")]: {
+      width: 250,
+      height: 250,
+    },
   },
 
   overlay: {

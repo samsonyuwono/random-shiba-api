@@ -40,3 +40,19 @@ body {
     transform: rotate(360deg);
   }
 }
+
+/* @media screen and (max-device-width: 812px), (max-device-height: 375px) {
+  .makeStyles-modal-7 {
+    width: 300px !important;
+    height: 300px !important;
+  }
+
+  @media screen and (max-device-width: 767px) and (orientation: portrait),
+    (max-device-height: 375px) and (orientation: portrait) {
+    .makeStyles-modal-7 {
+      border:2px solid red;s
+      width: 0px !important;
+      height: 0px !important;
+    }
+  }
+} */

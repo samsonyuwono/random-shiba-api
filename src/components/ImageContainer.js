@@ -2,37 +2,21 @@ import React, { useState, useEffect } from "react";
 import Images from "./Images.js";
 import FetchButton from "./Button.js";
 import Container from "@material-ui/core/Container";
-import axios from "axios";
 import { Waypoint } from "react-waypoint";
-// import { useFetch } from "../hooks/useFetch";
 import Spinner from "./Spinner";
+import { useFetch } from "../hooks/useFetch.js";
 function ImageContainer() {
-  const [shibas, setShibas] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const [wayPointActivated, setWaypoint] = useState(false);
   const [open, setOpen] = useState(false);
   const [currentModal, setModal] = useState("");
-  const API_URL = "http://shibe.online/api/shibes?count=20";
-  const CORS_ANYWHERE = "https://cors-anywhere.herokuapp.com/";
+  const { shibas, loading, waypointActivated, loadData } = useFetch();
 
   const fetchShibas = () => {
-    setLoading(true);
-    axios
-      .get(CORS_ANYWHERE + API_URL)
-      .then((response) => {
-        setShibas([...shibas, ...response.data]);
-        setLoading(false);
-        setWaypoint(true);
-      })
-      .catch((error) => {
-        console.log(error);
-        setLoading(false);
-      });
+    loadData();
+    // console.log(loading);
+    // console.log("the shibas", shibas);
   };
 
-  //   const [shibas, loading, waypointActivated] = useFetch(
-  //     API_URL + CORS_ANYWHERE
-  //   );
+  // console.log("the shibas", shibas);
 
   const clickModal = (e) => {
     setModal(e);
@@ -62,7 +46,7 @@ function ImageContainer() {
       ) : (
         <Waypoint
           onEnter={() => {
-            if (wayPointActivated && shibas) {
+            if (waypointActivated && shibas) {
               fetchShibas();
             }
           }}
