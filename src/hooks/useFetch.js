@@ -3,7 +3,6 @@ import axios from "axios";
 
 export const useFetch = () => {
   const API_URL = "http://shibe.online/api/shibes?count=20";
-  const CORS_ANYWHERE = "https://cors-anywhere.herokuapp.com/";
 
   const [shibas, setShibas] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -14,7 +13,7 @@ export const useFetch = () => {
     setLoading(true);
     //axios call is not being hit
     axios
-      .get(CORS_ANYWHERE + API_URL)
+      .get(API_URL)
       .then((res) => {
         setShibas([...shibas, ...res.data]);
         setLoading(false);
