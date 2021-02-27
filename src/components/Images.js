@@ -1,7 +1,6 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
-import Paper from "@material-ui/core/Paper";
 import SingleImage from "./SingleImage.js";
 
 const useStyles = makeStyles((theme) => ({
@@ -77,20 +76,18 @@ const Images = ({ shiba, loading, clickModal, open, currentModal }) => {
         <Grid container justify="center" spacing={2}>
           {shiba.map((image, i) => (
             <Grid key={i} item>
-              <Paper>
-                <SingleImage
-                  className={loading ? classes.loading : classes.paper}
-                  src={image}
-                  key={i}
-                  alt="shibe"
-                  clickModal={() => clickModal(image)}
-                  open={open}
-                  currentModal={currentModal}
-                  dialog={classes.dialog}
-                  modal={classes.modal}
-                  overlay={classes.overlay}
-                />
-              </Paper>
+              <SingleImage
+                className={loading ? classes.loading : classes.paper}
+                src={image}
+                key={i}
+                alt="shibe"
+                clickModal={() => clickModal(image)}
+                open={open}
+                currentModal={currentModal}
+                dialog={classes.dialog}
+                modal={classes.modal}
+                overlay={classes.overlay}
+              />
             </Grid>
           ))}
         </Grid>
