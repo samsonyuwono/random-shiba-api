@@ -2,18 +2,22 @@ import { useState } from "react";
 import axios from "axios";
 
 export const useFetch = () => {
-  const API_URL = "http://shibe.online/api/shibes?count=20";
+  const API_URL = "https://shibe.online/api/shibes?count=20";
 
   const [shibas, setShibas] = useState([]);
   const [loading, setLoading] = useState(false);
   const [waypointActivated, setWaypoint] = useState(false);
 
+  function buildCorsFreeUrl(target) {
+    return `https://cors.bridged.cc/${target}`;
+  }
+
+  const corsFreeUrl = buildCorsFreeUrl(API_URL);
+
   function loadData() {
-    console.log("loaddata");
     setLoading(true);
-    //axios call is not being hit
     axios
-      .get(API_URL)
+      .get(corsFreeUrl)
       .then((res) => {
         setShibas([...shibas, ...res.data]);
         setLoading(false);
@@ -21,7 +25,6 @@ export const useFetch = () => {
       })
       .catch((error) => {
         console.log(error);
-        console.log("test");
         setLoading(false);
       });
   }
