@@ -12,11 +12,7 @@ function ImageContainer() {
 
   const fetchShibas = () => {
     loadData();
-    // console.log(loading);
-    // console.log("the shibas", shibas);
   };
-
-  // console.log("the shibas", shibas);
 
   const clickModal = (e) => {
     setModal(e);
@@ -24,11 +20,9 @@ function ImageContainer() {
   };
 
   useEffect(() => {
-    if (open) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "scroll";
-    }
+    open
+      ? (document.body.overflow = "hidden")
+      : (document.body.style.overflow = "scroll");
   });
 
   return (

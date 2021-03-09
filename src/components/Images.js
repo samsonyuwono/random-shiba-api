@@ -11,6 +11,7 @@ const useStyles = makeStyles((theme) => ({
     opacity: 1,
     height: 200,
     width: 200,
+    cursor: "pointer",
   },
   loading: {
     opacity: 0.2,
