@@ -8,16 +8,10 @@ export const useFetch = () => {
   const [loading, setLoading] = useState(false);
   const [waypointActivated, setWaypoint] = useState(false);
 
-  function buildCorsFreeUrl(target) {
-    return `https://cors.bridged.cc/${target}`;
-  }
-
-  const corsFreeUrl = buildCorsFreeUrl(API_URL);
-
   function loadData() {
     setLoading(true);
     axios
-      .get(corsFreeUrl)
+      .get(API_URL)
       .then((res) => {
         setShibas([...shibas, ...res.data]);
         setLoading(false);
